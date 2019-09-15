@@ -2,3 +2,5 @@ nginx/single/.DS_Store
 nginx/single/.vagrant/*
 nginx/single/Vagrantfile
 nginx/single/*
+.DS_Store
+.DS_Store
