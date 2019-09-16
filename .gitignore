@@ -4,3 +4,6 @@ nginx/single/Vagrantfile
 nginx/single/*
 .DS_Store
 .DS_Store
+/Users/alexey/learn/udemy/ansible/mastering_ansible/.vagrant
+ansible/mastering_ansible/.vagrant/machines/control/virtualbox/vagrant_cwd
+ansible/mastering_ansible/.vagrant/rgloader/loader.rb
