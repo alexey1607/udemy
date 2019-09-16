@@ -9,3 +9,4 @@ ansible/mastering_ansible/.vagrant/machines/control/virtualbox/vagrant_cwd
 ansible/mastering_ansible/.vagrant/rgloader/loader.rb
 ansible/mastering_ansible/.vagrant/
 ansible/mastering_ansible/.vagrant/*
+ansible/mastering_ansible/control.pub
