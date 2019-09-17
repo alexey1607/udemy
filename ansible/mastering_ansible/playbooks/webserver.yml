@@ -2,5 +2,11 @@
 - hosts: webserver
   become: true
   tasks:
-    - name: install apache2
+    - name: install web component
+      apt: name={{ item }} state=present update_cache=yes
+      with_items:
+        - apache2
+        - libapache2-mod-wsgi
+        - python-pip
+        - python-virtualenv
       
