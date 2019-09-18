@@ -1,20 +1,42 @@
 ---
 
-#restart loadbalancer
+#stop loadbalancer
+- hosts: loadbalancer
+  become: true
+  tasks:
+    - name: ensure nginx stop
+      service: name=nginx state=stop enabled=yes
+
+#stop restart
+- hosts: webserver
+  become: true
+  tasks:
+    - name: ensure apache2 stop
+      service: name=apache2 state=stop enabled=yes
+
+#stop database
+- hosts: database
+  become: true
+  tasks:
+    - name: ensure mysql stop
+      service: name=mysql state=stop enabled=yes
+
+#############################################################
+#start loadbalancer
 - hosts: loadbalancer
   become: true
   tasks:
     - name: ensure nginx started
       service: name=nginx state=started enabled=yes
 
-#webserver restart
+#start restart
 - hosts: webserver
   become: true
   tasks:
     - name: ensure apache2 started
       service: name=apache2 state=started enabled=yes
 
-#restart database
+#start database
 - hosts: database
   become: true
   tasks:
