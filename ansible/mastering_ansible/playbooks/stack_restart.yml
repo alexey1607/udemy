@@ -5,21 +5,21 @@
   become: true
   tasks:
     - name: ensure nginx stop
-      service: name=nginx state=stop enabled=yes
+      service: name=nginx state=stopped
 
 #stop restart
 - hosts: webserver
   become: true
   tasks:
     - name: ensure apache2 stop
-      service: name=apache2 state=stop enabled=yes
+      service: name=apache2 state=stopped
 
 #stop database
 - hosts: database
   become: true
   tasks:
     - name: ensure mysql stop
-      service: name=mysql state=stop enabled=yes
+      service: name=mysql state=stopped
 
 #############################################################
 #start loadbalancer
