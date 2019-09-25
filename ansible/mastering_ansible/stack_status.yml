@@ -6,6 +6,7 @@
 
     - name: verify nginx service
       command: service nginx status
+      changed_when: false
 
     - name: verify nginx is listening on 80 port
       wait_for: port=80 timeout=1
@@ -17,6 +18,7 @@
 
     - name: verify apach2 service
       command: service apache2 status
+      changed_when: false
       
     - name: verify apache2 is listening on 80 port
       wait_for: port=80 timeout=1
@@ -28,6 +30,7 @@
 
     - name: verify mysql service
       command: service mysql status
+      changed_when: false
 
     - name: verify mysql is listening on 3306 port
       wait_for: host={{ ansible_eth0.ipv4.address }} port=3306 timeout=1
