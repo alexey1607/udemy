@@ -17,3 +17,5 @@ ansible/mastering_ansible/control.pub
 .DS_Store
 .DS_Store
 redis/.vagrant/
+.DS_Store
+docker/docker_from_A_Z/.vagrant/
