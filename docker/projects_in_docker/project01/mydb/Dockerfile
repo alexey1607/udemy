@@ -1,2 +1,2 @@
-FROM mongo:3.4
+FROM mongo:3
 RUN apt-get update -q && apt-get dist-upgrade -y && apt-get clean && apt-get autoclean
