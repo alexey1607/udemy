@@ -19,3 +19,8 @@ ansible/mastering_ansible/control.pub
 redis/.vagrant/
 .DS_Store
 docker/docker_from_A_Z/.vagrant/
+python/python_bootcamp/venv/
+elk7/.vagrant
+python/python_bootcamp/.idea/
+.DS_Store
+.DS_Store
