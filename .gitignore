@@ -27,3 +27,5 @@ python/python_bootcamp/.idea/
 .DS_Store
 python/python_bootcamp/.vscode/settings.json
 .DS_Store
+gitlab/CI_on_GitLab/.vagrant/
+.DS_Store
