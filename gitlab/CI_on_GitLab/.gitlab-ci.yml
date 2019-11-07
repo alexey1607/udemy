@@ -1,0 +1,34 @@
+image: golang:1.7-alpine
+ 
+stages:
+  - clean
+  - build
+  - test
+ 
+clean_main:
+  stage: clean
+  script:
+    - go clean
+  tags:
+    - go-runner
+ 
+go_check:
+  stage: build
+  script:
+    - go version
+  tags:
+    - go-runner
+ 
+build_main:
+  stage: build
+  script:
+    - go build main.go
+  tags:
+    - go-runner
+ 
+test_main:
+  stage: test
+  script:
+    - go test
+  tags:
+    - go-runner

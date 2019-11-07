@@ -29,3 +29,6 @@ python/python_bootcamp/.vscode/settings.json
 .DS_Store
 gitlab/CI_on_GitLab/.vagrant/
 .DS_Store
+ansible/learn_ansible_and_master_devops/.vagrant/
+ansible/learn_ansible_and_master_devops/ansible/
+ansible/learn_ansible_and_master_devops/ansible/
