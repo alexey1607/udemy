@@ -3,8 +3,10 @@
   become: yes
   tasks:
     - name: install apache2
-      update_cache: yes
-      state: present
+      apt:
+        name: apache2
+        update_cache: yes
+        state: present
     - name: enable systemd
       service:
         name: apache2
