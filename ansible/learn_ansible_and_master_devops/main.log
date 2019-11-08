@@ -24,3 +24,27 @@ structure, it should be a dictionary, got: <class 'ansible.parsing.yaml.objects.
 
 2019-11-08 14:09:58,586 p=alexey u=8699 |  [ERROR]: User interrupted execution
 
+2019-11-08 18:16:29,854 p=alexey u=20082 | [WARNING]: Could not match supplied host pattern, ignoring: master
+
+2019-11-08 18:16:29,855 p=alexey u=20082 | [WARNING]: No hosts matched, nothing to do
+
+2019-11-08 18:17:01,849 p=alexey u=20135 | [WARNING]: Unhandled error in Python interpreter discovery for host db: Failed to connect to the host via ssh: ssh: connect to host 192.168.56.103 port 22: Operation timed out
+
+2019-11-08 18:17:01,849 p=alexey u=20133 | [WARNING]: Unhandled error in Python interpreter discovery for host nginx: Failed to connect to the host via ssh: ssh: connect to host 192.168.56.102 port 22: Operation timed out
+
+2019-11-08 18:17:01,849 p=alexey u=20139 | [WARNING]: Unhandled error in Python interpreter discovery for host web2: Failed to connect to the host via ssh: ssh: connect to host 192.168.56.101 port 22: Operation timed out
+
+2019-11-08 18:17:01,849 p=alexey u=20137 | [WARNING]: Unhandled error in Python interpreter discovery for host web1: Failed to connect to the host via ssh: ssh: connect to host 192.168.56.100 port 22: Operation timed out
+
+2019-11-08 18:17:01,898 p=alexey u=20129 | db | UNREACHABLE!: Data could not be sent to remote host "192.168.56.103". Make sure this host can be reached over ssh: ssh: connect to host 192.168.56.103 port 22: Host is down
+
+2019-11-08 18:17:01,898 p=alexey u=20129 | nginx | UNREACHABLE!: Data could not be sent to remote host "192.168.56.102". Make sure this host can be reached over ssh: ssh: connect to host 192.168.56.102 port 22: Host is down
+
+2019-11-08 18:17:01,899 p=alexey u=20129 | web1 | UNREACHABLE!: Data could not be sent to remote host "192.168.56.100". Make sure this host can be reached over ssh: ssh: connect to host 192.168.56.100 port 22: Host is down
+
+2019-11-08 18:17:01,900 p=alexey u=20129 | web2 | UNREACHABLE!: Data could not be sent to remote host "192.168.56.101". Make sure this host can be reached over ssh: ssh: connect to host 192.168.56.101 port 22: Host is down
+
+2019-11-08 18:19:59,412 p=alexey u=20621 | nginx | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"},"changed": false,"ping": "pong"}
+2019-11-08 18:19:59,413 p=alexey u=20621 | db | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"},"changed": false,"ping": "pong"}
+2019-11-08 18:19:59,414 p=alexey u=20621 | web1 | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"},"changed": false,"ping": "pong"}
+2019-11-08 18:19:59,415 p=alexey u=20621 | web2 | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"},"changed": false,"ping": "pong"}
