@@ -11,7 +11,7 @@ hosts = {
 Vagrant.configure("2") do |config|
   hosts.each do |name, ip|
     config.vm.define name do |machine|
-      machine.vm.box = "ubuntu/trusty64"
+      machine.vm.box = "bento/ubuntu-17.04"
       machine.vm.hostname = "%s.example.com" % name
       machine.vm.network :private_network, ip: ip
       machine.vm.provider "virtualbox" do |v|

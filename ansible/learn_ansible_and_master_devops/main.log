@@ -66,3 +66,290 @@ structure, it should be a dictionary, got: <class 'ansible.parsing.yaml.objects.
 2019-11-08 18:29:56,711 p=alexey u=20982 |     db
 2019-11-08 18:29:56,712 p=alexey u=20982 |     web1
 2019-11-08 18:29:56,712 p=alexey u=20982 |     web2
+2019-11-08 19:35:53,597 p=alexey u=21737 | ERROR! the playbook: playbooks/apache.yml could not be found
+2019-11-08 19:36:09,877 p=alexey u=21742 | PLAY [webserver] ********************************************************************************************************
+2019-11-08 19:36:09,892 p=alexey u=21742 | TASK [Gathering Facts] **************************************************************************************************
+2019-11-08 19:36:12,085 p=alexey u=21742 | ok: [web1]
+2019-11-08 19:36:12,195 p=alexey u=21742 | ok: [web2]
+2019-11-08 19:36:12,219 p=alexey u=21742 | TASK [install apache2] **************************************************************************************************
+2019-11-08 19:36:22,644 p=alexey u=21742 | ok: [web1]
+2019-11-08 19:36:22,647 p=alexey u=21742 | ok: [web2]
+2019-11-08 19:36:22,685 p=alexey u=21742 | TASK [enable systemd] ***************************************************************************************************
+2019-11-08 19:36:23,153 p=alexey u=21742 | ok: [web1]
+2019-11-08 19:36:23,161 p=alexey u=21742 | ok: [web2]
+2019-11-08 19:36:23,184 p=alexey u=21742 | TASK [Add PHP 7.1 repo] *************************************************************************************************
+2019-11-08 19:36:37,361 p=alexey u=21742 | [WARNING]: Module remote_tmp /root/.ansible/tmp did not exist and was created with a mode of 0700, this may cause issues
+when running as another user. To avoid this, create the remote_tmp dir with the correct permissions manually
+
+2019-11-08 19:36:37,367 p=alexey u=21742 | changed: [web1]
+2019-11-08 19:36:37,369 p=alexey u=21742 | changed: [web2]
+2019-11-08 19:36:37,409 p=alexey u=21742 | TASK [install php 7 packages] *******************************************************************************************
+2019-11-08 19:36:37,469 p=alexey u=21776 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a 
+loop to supply multiple items and specifying `name: "{{ item }}"`, please use `name: ['php7.1', 'php7.1-xml', 
+'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 
+'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:36:37,517 p=alexey u=21777 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a 
+loop to supply multiple items and specifying `name: "{{ item }}"`, please use `name: ['php7.1', 'php7.1-xml', 
+'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 
+'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:36:50,449 p=alexey u=21742 | failed: [web2] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:36:50,467 p=alexey u=21742 | failed: [web1] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:36:50,473 p=alexey u=21742 | PLAY RECAP **************************************************************************************************************
+2019-11-08 19:36:50,473 p=alexey u=21742 | web1                       : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:36:50,474 p=alexey u=21742 | web2                       : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:37:41,146 p=alexey u=21826 | PLAY [webserver] ********************************************************************************************************
+2019-11-08 19:37:41,162 p=alexey u=21826 | TASK [Gathering Facts] **************************************************************************************************
+2019-11-08 19:37:43,696 p=alexey u=21826 | ok: [web1]
+2019-11-08 19:37:43,717 p=alexey u=21826 | ok: [web2]
+2019-11-08 19:37:43,771 p=alexey u=21826 | TASK [install apache2] **************************************************************************************************
+2019-11-08 19:37:51,629 p=alexey u=21826 | ok: [web1]
+2019-11-08 19:37:51,631 p=alexey u=21826 | ok: [web2]
+2019-11-08 19:37:51,674 p=alexey u=21826 | TASK [enable systemd] ***************************************************************************************************
+2019-11-08 19:37:52,132 p=alexey u=21826 | ok: [web1]
+2019-11-08 19:37:52,138 p=alexey u=21826 | ok: [web2]
+2019-11-08 19:37:52,163 p=alexey u=21826 | TASK [Add PHP 7.1 repo] *************************************************************************************************
+2019-11-08 19:37:52,508 p=alexey u=21826 | ok: [web1]
+2019-11-08 19:37:52,514 p=alexey u=21826 | ok: [web2]
+2019-11-08 19:37:52,539 p=alexey u=21826 | TASK [install php 7 packages] *******************************************************************************************
+2019-11-08 19:37:52,580 p=alexey u=21854 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a 
+loop to supply multiple items and specifying `pkg: "{{ item }}"`, please use `pkg: ['php7.1', 'php7.1-xml', 
+'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 
+'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:37:52,622 p=alexey u=21855 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a 
+loop to supply multiple items and specifying `pkg: "{{ item }}"`, please use `pkg: ['php7.1', 'php7.1-xml', 
+'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 
+'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:37:59,966 p=alexey u=21826 | failed: [web2] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:37:59,971 p=alexey u=21826 | failed: [web1] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:37:59,974 p=alexey u=21826 | PLAY RECAP **************************************************************************************************************
+2019-11-08 19:37:59,977 p=alexey u=21826 | web1                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:37:59,977 p=alexey u=21826 | web2                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:39:06,084 p=alexey u=22011 | PLAY [webserver] ******************************************************************************************************************************************************************************************
+2019-11-08 19:39:06,102 p=alexey u=22011 | TASK [Gathering Facts] ************************************************************************************************************************************************************************************
+2019-11-08 19:39:09,347 p=alexey u=22011 | ok: [web1]
+2019-11-08 19:39:09,356 p=alexey u=22011 | ok: [web2]
+2019-11-08 19:39:09,380 p=alexey u=22011 | TASK [install apache2] ************************************************************************************************************************************************************************************
+2019-11-08 19:39:17,223 p=alexey u=22011 | ok: [web1]
+2019-11-08 19:39:17,225 p=alexey u=22011 | ok: [web2]
+2019-11-08 19:39:17,263 p=alexey u=22011 | TASK [enable systemd] *************************************************************************************************************************************************************************************
+2019-11-08 19:39:17,703 p=alexey u=22011 | ok: [web1]
+2019-11-08 19:39:17,711 p=alexey u=22011 | ok: [web2]
+2019-11-08 19:39:17,739 p=alexey u=22011 | TASK [Add PHP 7.1 repo] ***********************************************************************************************************************************************************************************
+2019-11-08 19:39:18,083 p=alexey u=22011 | ok: [web1]
+2019-11-08 19:39:18,086 p=alexey u=22011 | ok: [web2]
+2019-11-08 19:39:18,114 p=alexey u=22011 | TASK [install php 7 packages] *****************************************************************************************************************************************************************************
+2019-11-08 19:39:18,159 p=alexey u=22045 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `pkg: "{{ item }}"`, please use `pkg:
+ ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove
+ the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:39:18,183 p=alexey u=22046 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `pkg: "{{ item }}"`, please use `pkg:
+ ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove
+ the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:39:25,554 p=alexey u=22011 | failed: [web2] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:39:25,558 p=alexey u=22011 | failed: [web1] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:39:25,560 p=alexey u=22011 | PLAY RECAP ************************************************************************************************************************************************************************************************
+2019-11-08 19:39:25,560 p=alexey u=22011 | web1                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:39:25,561 p=alexey u=22011 | web2                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:39:32,632 p=alexey u=22061 | ansible-playbook 2.9.0
+  config file = /Users/alexey/learn/udemy/ansible/learn_ansible_and_master_devops/ansible.cfg
+  configured module search path = ['/Users/alexey/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /Users/alexey/learn/udemy/ansible/learn_ansible_and_master_devops/ansible/lib/python3.7/site-packages/ansible
+  executable location = /Users/alexey/learn/udemy/ansible/learn_ansible_and_master_devops/ansible/bin/ansible-playbook
+  python version = 3.7.3 (default, Mar 27 2019, 09:23:15) [Clang 10.0.1 (clang-1001.0.46.3)]
+2019-11-08 19:39:32,632 p=alexey u=22061 | Using /Users/alexey/learn/udemy/ansible/learn_ansible_and_master_devops/ansible.cfg as config file
+2019-11-08 19:39:33,656 p=alexey u=22061 | PLAYBOOK: apache.yaml *************************************************************************************************************************************************************************************
+2019-11-08 19:39:33,656 p=alexey u=22061 | 1 plays in playbooks/apache.yaml
+2019-11-08 19:39:33,659 p=alexey u=22061 | PLAY [webserver] ******************************************************************************************************************************************************************************************
+2019-11-08 19:39:33,670 p=alexey u=22061 | TASK [Gathering Facts] ************************************************************************************************************************************************************************************
+2019-11-08 19:39:36,501 p=alexey u=22061 | ok: [web1]
+2019-11-08 19:39:36,512 p=alexey u=22061 | ok: [web2]
+2019-11-08 19:39:36,513 p=alexey u=22061 | META: ran handlers
+2019-11-08 19:39:36,539 p=alexey u=22061 | TASK [install apache2] ************************************************************************************************************************************************************************************
+2019-11-08 19:39:44,871 p=alexey u=22061 | ok: [web2] => {"cache_update_time": 1573231200, "cache_updated": true, "changed": false}
+2019-11-08 19:39:45,006 p=alexey u=22061 | ok: [web1] => {"cache_update_time": 1573231183, "cache_updated": true, "changed": false}
+2019-11-08 19:39:45,063 p=alexey u=22061 | TASK [enable systemd] *************************************************************************************************************************************************************************************
+2019-11-08 19:39:45,678 p=alexey u=22061 | ok: [web2] => {"changed": false, "enabled": true, "name": "apache2", "state": "started"}
+2019-11-08 19:39:45,680 p=alexey u=22061 | ok: [web1] => {"changed": false, "enabled": true, "name": "apache2", "state": "started"}
+2019-11-08 19:39:45,729 p=alexey u=22061 | TASK [Add PHP 7.1 repo] ***********************************************************************************************************************************************************************************
+2019-11-08 19:39:46,125 p=alexey u=22061 | ok: [web1] => {"changed": false, "repo": "ppa:ondrej/php", "state": "present"}
+2019-11-08 19:39:46,132 p=alexey u=22061 | ok: [web2] => {"changed": false, "repo": "ppa:ondrej/php", "state": "present"}
+2019-11-08 19:39:46,187 p=alexey u=22061 | TASK [install php 7 packages] *****************************************************************************************************************************************************************************
+2019-11-08 19:39:46,240 p=alexey u=22102 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `pkg: "{{ item }}"`, please use `pkg:
+ ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove
+ the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:39:46,283 p=alexey u=22103 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `pkg: "{{ item }}"`, please use `pkg:
+ ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove
+ the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:39:53,767 p=alexey u=22061 | failed: [web2] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:39:53,787 p=alexey u=22061 | failed: [web1] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:39:53,791 p=alexey u=22061 | PLAY RECAP ************************************************************************************************************************************************************************************************
+2019-11-08 19:39:53,792 p=alexey u=22061 | web1                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:39:53,793 p=alexey u=22061 | web2                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:41:56,853 p=alexey u=22249 | ERROR! Syntax Error while loading YAML.
+  found unacceptable key (unhashable type: 'AnsibleMapping')
+
+The error appears to be in '/Users/alexey/learn/udemy/ansible/learn_ansible_and_master_devops/playbooks/apache.yaml': line 25, column 16, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      apt:
+        name: {{ item }}
+               ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2019-11-08 19:42:40,428 p=alexey u=22283 | PLAY [webserver] ********************************************************************************************************
+2019-11-08 19:42:40,444 p=alexey u=22283 | TASK [Gathering Facts] **************************************************************************************************
+2019-11-08 19:42:42,705 p=alexey u=22283 | ok: [web1]
+2019-11-08 19:42:42,713 p=alexey u=22283 | ok: [web2]
+2019-11-08 19:42:42,735 p=alexey u=22283 | TASK [install apache2] **************************************************************************************************
+2019-11-08 19:42:50,431 p=alexey u=22283 | ok: [web2]
+2019-11-08 19:42:50,436 p=alexey u=22283 | ok: [web1]
+2019-11-08 19:42:50,474 p=alexey u=22283 | TASK [enable systemd] ***************************************************************************************************
+2019-11-08 19:42:50,927 p=alexey u=22283 | ok: [web1]
+2019-11-08 19:42:50,934 p=alexey u=22283 | ok: [web2]
+2019-11-08 19:42:50,957 p=alexey u=22283 | TASK [Add PHP 7.1 repo] *************************************************************************************************
+2019-11-08 19:42:51,304 p=alexey u=22283 | ok: [web1]
+2019-11-08 19:42:51,307 p=alexey u=22283 | ok: [web2]
+2019-11-08 19:42:51,331 p=alexey u=22283 | TASK [install php 7 packages] *******************************************************************************************
+2019-11-08 19:42:51,371 p=alexey u=22317 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a 
+loop to supply multiple items and specifying `name: "{{ item }}"`, please use `name: ['php7.1', 'php7.1-xml', 
+'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 
+'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:42:51,402 p=alexey u=22318 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a 
+loop to supply multiple items and specifying `name: "{{ item }}"`, please use `name: ['php7.1', 'php7.1-xml', 
+'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 
+'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2019-11-08 19:42:58,642 p=alexey u=22283 | failed: [web1] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:42:58,899 p=alexey u=22283 | failed: [web2] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:42:58,902 p=alexey u=22283 | PLAY RECAP **************************************************************************************************************
+2019-11-08 19:42:58,902 p=alexey u=22283 | web1                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:42:58,902 p=alexey u=22283 | web2                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:45:07,659 p=alexey u=22511 | PLAY [webserver] ************************************************************************************************************************************************************************
+2019-11-08 19:45:07,676 p=alexey u=22511 | TASK [Gathering Facts] ******************************************************************************************************************************************************************
+2019-11-08 19:45:13,143 p=alexey u=22511 | ok: [web1]
+2019-11-08 19:45:13,189 p=alexey u=22511 | ok: [web2]
+2019-11-08 19:45:13,225 p=alexey u=22511 | TASK [install apache2] ******************************************************************************************************************************************************************
+2019-11-08 19:45:21,244 p=alexey u=22511 | ok: [web2]
+2019-11-08 19:45:21,278 p=alexey u=22511 | ok: [web1]
+2019-11-08 19:45:21,318 p=alexey u=22511 | TASK [enable systemd] *******************************************************************************************************************************************************************
+2019-11-08 19:45:21,830 p=alexey u=22511 | ok: [web1]
+2019-11-08 19:45:21,837 p=alexey u=22511 | ok: [web2]
+2019-11-08 19:45:21,866 p=alexey u=22511 | TASK [Add PHP 7.1 repo] *****************************************************************************************************************************************************************
+2019-11-08 19:45:22,324 p=alexey u=22511 | ok: [web1]
+2019-11-08 19:45:22,327 p=alexey u=22511 | ok: [web2]
+2019-11-08 19:45:22,358 p=alexey u=22511 | TASK [install php 7 packages] ***********************************************************************************************************************************************************
+2019-11-08 19:45:22,407 p=alexey u=22551 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ item 
+}}"`, please use `name: ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 
+'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in
+ ansible.cfg.
+2019-11-08 19:45:22,444 p=alexey u=22552 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ item 
+}}"`, please use `name: ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 
+'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in
+ ansible.cfg.
+2019-11-08 19:45:30,026 p=alexey u=22511 | failed: [web2] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:45:30,299 p=alexey u=22511 | failed: [web1] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:45:30,302 p=alexey u=22511 | PLAY RECAP ******************************************************************************************************************************************************************************
+2019-11-08 19:45:30,303 p=alexey u=22511 | web1                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:45:30,303 p=alexey u=22511 | web2                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:50:24,988 p=alexey u=22708 | ERROR! conflicting action statements: apt, state
+
+The error appears to be in '/Users/alexey/learn/udemy/ansible/learn_ansible_and_master_devops/playbooks/apache.yaml': line 14, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: install PHP 7 and the required packages for Laravel
+      ^ here
+
+2019-11-08 19:53:16,544 p=alexey u=22814 | PLAY [webserver] ************************************************************************************************************************************************************************
+2019-11-08 19:53:16,563 p=alexey u=22814 | TASK [Gathering Facts] ******************************************************************************************************************************************************************
+2019-11-08 19:53:18,954 p=alexey u=22814 | ok: [web1]
+2019-11-08 19:53:18,964 p=alexey u=22814 | ok: [web2]
+2019-11-08 19:53:18,989 p=alexey u=22814 | TASK [install apache2] ******************************************************************************************************************************************************************
+2019-11-08 19:53:26,839 p=alexey u=22814 | ok: [web2]
+2019-11-08 19:53:26,850 p=alexey u=22814 | ok: [web1]
+2019-11-08 19:53:26,888 p=alexey u=22814 | TASK [enable systemd] *******************************************************************************************************************************************************************
+2019-11-08 19:53:27,392 p=alexey u=22814 | ok: [web1]
+2019-11-08 19:53:27,396 p=alexey u=22814 | ok: [web2]
+2019-11-08 19:53:27,422 p=alexey u=22814 | TASK [Add PHP 7.1 repo] *****************************************************************************************************************************************************************
+2019-11-08 19:53:27,835 p=alexey u=22814 | ok: [web1]
+2019-11-08 19:53:27,840 p=alexey u=22814 | ok: [web2]
+2019-11-08 19:53:27,870 p=alexey u=22814 | TASK [install php 7 packages] ***********************************************************************************************************************************************************
+2019-11-08 19:53:27,922 p=alexey u=22845 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `pkg: "{{ item 
+}}"`, please use `pkg: ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 
+'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in
+ ansible.cfg.
+2019-11-08 19:53:27,957 p=alexey u=22846 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `pkg: "{{ item 
+}}"`, please use `pkg: ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 
+'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in
+ ansible.cfg.
+2019-11-08 19:53:35,354 p=alexey u=22814 | failed: [web2] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:53:36,162 p=alexey u=22814 | failed: [web1] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:53:36,165 p=alexey u=22814 | PLAY RECAP ******************************************************************************************************************************************************************************
+2019-11-08 19:53:36,166 p=alexey u=22814 | web1                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:53:36,166 p=alexey u=22814 | web2                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:58:31,028 p=alexey u=22995 | PLAY [webserver] ************************************************************************************************************************************************************************
+2019-11-08 19:58:31,046 p=alexey u=22995 | TASK [Gathering Facts] ******************************************************************************************************************************************************************
+2019-11-08 19:58:34,516 p=alexey u=22995 | ok: [web1]
+2019-11-08 19:58:34,527 p=alexey u=22995 | ok: [web2]
+2019-11-08 19:58:34,563 p=alexey u=22995 | TASK [install apache2] ******************************************************************************************************************************************************************
+2019-11-08 19:58:44,540 p=alexey u=22995 | ok: [web2]
+2019-11-08 19:58:44,788 p=alexey u=22995 | ok: [web1]
+2019-11-08 19:58:44,824 p=alexey u=22995 | TASK [enable systemd] *******************************************************************************************************************************************************************
+2019-11-08 19:58:45,404 p=alexey u=22995 | ok: [web2]
+2019-11-08 19:58:45,405 p=alexey u=22995 | ok: [web1]
+2019-11-08 19:58:45,428 p=alexey u=22995 | TASK [Add PHP 7.1 repo] *****************************************************************************************************************************************************************
+2019-11-08 19:58:45,818 p=alexey u=22995 | ok: [web1]
+2019-11-08 19:58:45,825 p=alexey u=22995 | ok: [web2]
+2019-11-08 19:58:45,853 p=alexey u=22995 | TASK [install php 7 packages] ***********************************************************************************************************************************************************
+2019-11-08 19:58:45,935 p=alexey u=23026 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `pkg: "{{ item 
+}}"`, please use `pkg: ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 
+'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in
+ ansible.cfg.
+2019-11-08 19:58:45,991 p=alexey u=23027 | [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying `pkg: "{{ item 
+}}"`, please use `pkg: ['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 
+'libapache2-mod-php7.1', 'php7.1-zip']` and remove the loop. This feature will be removed in version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False in
+ ansible.cfg.
+2019-11-08 19:58:53,313 p=alexey u=22995 | failed: [web1] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:58:53,408 p=alexey u=22995 | failed: [web2] (item=['php7.1', 'php7.1-xml', 'php7.1-mbstring', 'php7.1-mysql', 'php7.1-json', 'php7.1-curl', 'php7.1-cli', 'php7.1-common', 'php7.1-mcrypt', 'php7.1-gd', 'libapache2-mod-php7.1', 'php7.1-zip']) => {"ansible_loop_var": "item", "changed": false, "item": ["php7.1", "php7.1-xml", "php7.1-mbstring", "php7.1-mysql", "php7.1-json", "php7.1-curl", "php7.1-cli", "php7.1-common", "php7.1-mcrypt", "php7.1-gd", "libapache2-mod-php7.1", "php7.1-zip"], "msg": "No package matching 'php7.1' is available"}
+2019-11-08 19:58:53,414 p=alexey u=22995 | PLAY RECAP ******************************************************************************************************************************************************************************
+2019-11-08 19:58:53,415 p=alexey u=22995 | web1                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 19:58:53,415 p=alexey u=22995 | web2                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 20:07:24,980 p=alexey u=24035 |   hosts (4):
+2019-11-08 20:07:24,981 p=alexey u=24035 |     nginx
+2019-11-08 20:07:24,981 p=alexey u=24035 |     db
+2019-11-08 20:07:24,981 p=alexey u=24035 |     web1
+2019-11-08 20:07:24,981 p=alexey u=24035 |     web2
+2019-11-08 20:07:33,106 p=alexey u=24050 | db | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"},"changed": false,"deprecations": [{"msg": "Distribution Ubuntu 17.04 on host db should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information","version": "2.12"}],"ping": "pong"}
+2019-11-08 20:07:33,108 p=alexey u=24050 | nginx | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"},"changed": false,"deprecations": [{"msg": "Distribution Ubuntu 17.04 on host nginx should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information","version": "2.12"}],"ping": "pong"}
+2019-11-08 20:07:33,454 p=alexey u=24050 | web2 | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"},"changed": false,"deprecations": [{"msg": "Distribution Ubuntu 17.04 on host web2 should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information","version": "2.12"}],"ping": "pong"}
+2019-11-08 20:07:33,455 p=alexey u=24050 | web1 | SUCCESS => {"ansible_facts": {"discovered_interpreter_python": "/usr/bin/python"},"changed": false,"deprecations": [{"msg": "Distribution Ubuntu 17.04 on host web1 should use /usr/bin/python3, but is using /usr/bin/python for backward compatibility with prior Ansible releases. A future Ansible release will default to using the discovered platform python for this host. See https://docs.ansible.com/ansible/2.9/reference_appendices/interpreter_discovery.html for more information","version": "2.12"}],"ping": "pong"}
+2019-11-08 20:07:47,023 p=alexey u=24114 | PLAY [webserver] *******************************************************************************************************************************************************
+2019-11-08 20:07:47,041 p=alexey u=24114 | TASK [Gathering Facts] *************************************************************************************************************************************************
+2019-11-08 20:07:48,042 p=alexey u=24114 | ok: [web1]
+2019-11-08 20:07:48,044 p=alexey u=24114 | ok: [web2]
+2019-11-08 20:07:48,054 p=alexey u=24114 | TASK [install apache2] *************************************************************************************************************************************************
+2019-11-08 20:07:50,529 p=alexey u=24114 | [WARNING]: Updating cache and auto-installing missing dependency: python-apt
+
+2019-11-08 20:07:50,530 p=alexey u=24114 | fatal: [web2]: FAILED! => {"changed": false, "cmd": "apt-get update", "msg": "E: The repository 'http://security.ubuntu.com/ubuntu zesty-security Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty-updates Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty-backports Release' does no longer have a Release file.", "rc": 100, "stderr": "E: The repository 'http://security.ubuntu.com/ubuntu zesty-security Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty-updates Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty-backports Release' does no longer have a Release file.\n", "stderr_lines": ["E: The repository 'http://security.ubuntu.com/ubuntu zesty-security Release' does no longer have a Release file.", "E: The repository 'http://archive.ubuntu.com/ubuntu zesty Release' does no longer have a Release file.", "E: The repository 'http://archive.ubuntu.com/ubuntu zesty-updates Release' does no longer have a Release file.", "E: The repository 'http://archive.ubuntu.com/ubuntu zesty-backports Release' does no longer have a Release file."], "stdout": "Ign:1 http://security.ubuntu.com/ubuntu zesty-security InRelease\nIgn:2 http://archive.ubuntu.com/ubuntu zesty InRelease\nErr:3 http://security.ubuntu.com/ubuntu zesty-security Release\n  404  Not Found [IP: 91.189.88.173 80]\nIgn:4 http://archive.ubuntu.com/ubuntu zesty-updates InRelease\nIgn:5 http://archive.ubuntu.com/ubuntu zesty-backports InRelease\nErr:6 http://archive.ubuntu.com/ubuntu zesty Release\n  404  Not Found [IP: 91.189.88.162 80]\nErr:7 http://archive.ubuntu.com/ubuntu zesty-updates Release\n  404  Not Found [IP: 91.189.88.162 80]\nErr:8 http://archive.ubuntu.com/ubuntu zesty-backports Release\n  404  Not Found [IP: 91.189.88.162 80]\nReading package lists...\n", "stdout_lines": ["Ign:1 http://security.ubuntu.com/ubuntu zesty-security InRelease", "Ign:2 http://archive.ubuntu.com/ubuntu zesty InRelease", "Err:3 http://security.ubuntu.com/ubuntu zesty-security Release", "  404  Not Found [IP: 91.189.88.173 80]", "Ign:4 http://archive.ubuntu.com/ubuntu zesty-updates InRelease", "Ign:5 http://archive.ubuntu.com/ubuntu zesty-backports InRelease", "Err:6 http://archive.ubuntu.com/ubuntu zesty Release", "  404  Not Found [IP: 91.189.88.162 80]", "Err:7 http://archive.ubuntu.com/ubuntu zesty-updates Release", "  404  Not Found [IP: 91.189.88.162 80]", "Err:8 http://archive.ubuntu.com/ubuntu zesty-backports Release", "  404  Not Found [IP: 91.189.88.162 80]", "Reading package lists..."]}
+2019-11-08 20:07:50,560 p=alexey u=24114 | fatal: [web1]: FAILED! => {"changed": false, "cmd": "apt-get update", "msg": "E: The repository 'http://security.ubuntu.com/ubuntu zesty-security Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty-updates Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty-backports Release' does no longer have a Release file.", "rc": 100, "stderr": "E: The repository 'http://security.ubuntu.com/ubuntu zesty-security Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty-updates Release' does no longer have a Release file.\nE: The repository 'http://archive.ubuntu.com/ubuntu zesty-backports Release' does no longer have a Release file.\n", "stderr_lines": ["E: The repository 'http://security.ubuntu.com/ubuntu zesty-security Release' does no longer have a Release file.", "E: The repository 'http://archive.ubuntu.com/ubuntu zesty Release' does no longer have a Release file.", "E: The repository 'http://archive.ubuntu.com/ubuntu zesty-updates Release' does no longer have a Release file.", "E: The repository 'http://archive.ubuntu.com/ubuntu zesty-backports Release' does no longer have a Release file."], "stdout": "Ign:1 http://security.ubuntu.com/ubuntu zesty-security InRelease\nIgn:2 http://archive.ubuntu.com/ubuntu zesty InRelease\nErr:3 http://security.ubuntu.com/ubuntu zesty-security Release\n  404  Not Found [IP: 91.189.88.173 80]\nIgn:4 http://archive.ubuntu.com/ubuntu zesty-updates InRelease\nIgn:5 http://archive.ubuntu.com/ubuntu zesty-backports InRelease\nErr:6 http://archive.ubuntu.com/ubuntu zesty Release\n  404  Not Found [IP: 91.189.88.162 80]\nErr:7 http://archive.ubuntu.com/ubuntu zesty-updates Release\n  404  Not Found [IP: 91.189.88.162 80]\nErr:8 http://archive.ubuntu.com/ubuntu zesty-backports Release\n  404  Not Found [IP: 91.189.88.162 80]\nReading package lists...\n", "stdout_lines": ["Ign:1 http://security.ubuntu.com/ubuntu zesty-security InRelease", "Ign:2 http://archive.ubuntu.com/ubuntu zesty InRelease", "Err:3 http://security.ubuntu.com/ubuntu zesty-security Release", "  404  Not Found [IP: 91.189.88.173 80]", "Ign:4 http://archive.ubuntu.com/ubuntu zesty-updates InRelease", "Ign:5 http://archive.ubuntu.com/ubuntu zesty-backports InRelease", "Err:6 http://archive.ubuntu.com/ubuntu zesty Release", "  404  Not Found [IP: 91.189.88.162 80]", "Err:7 http://archive.ubuntu.com/ubuntu zesty-updates Release", "  404  Not Found [IP: 91.189.88.162 80]", "Err:8 http://archive.ubuntu.com/ubuntu zesty-backports Release", "  404  Not Found [IP: 91.189.88.162 80]", "Reading package lists..."]}
+2019-11-08 20:07:50,562 p=alexey u=24114 | PLAY RECAP *************************************************************************************************************************************************************
+2019-11-08 20:07:50,562 p=alexey u=24114 | web1                       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2019-11-08 20:07:50,562 p=alexey u=24114 | web2                       : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
