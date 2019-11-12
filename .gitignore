@@ -35,3 +35,6 @@ ansible/learn_ansible_and_master_devops/ansible/
 ansible/ansible_masterclass_2_in_1/ansible/
 ansible/learn_ansible_and_master_devops/main.log
 ansible/learn_ansible_and_master_devops/main.log
+ansible/ansible_beginer/ansible/
+ansible/ansible_beginer/.vagrant/
+ansible/ansible_beginer/.vagrant/rgloader/loader.rb
