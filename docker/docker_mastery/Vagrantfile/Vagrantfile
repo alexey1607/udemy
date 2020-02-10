@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+hosts = {
+  "master" => "172.10.55.100",
+  "node01" => "172.10.55.101",
+  "node02" => "172.10.55.102"
+}
+
+Vagrant.configure("2") do |config|
+  hosts.each do |name, ip|
+    config.vm.define name do |machine|
+      machine.vm.box = "centos/7"
+      machine.vm.hostname = "%s.example.com" % name
+      machine.vm.network :private_network, ip: ip
+      machine.vm.provider "virtualbox" do |v|
+          v.name = name
+          v.customize ["modifyvm", :id, "--memory", 1024]
+      end
+    config.vm.provision "shell", inline: <<-SHELL
+    echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3EJRX0uKg7eHk/v8EMASnwbCLbRke5cIOAgX5FLIngWbABtD1RVKLaNVFqfCIDyObJcz71OOq6R5oMSo7wL4AH5fY9BLrs9+uf0ijgqZq11QQ/U0i20UMgn9h04f0ol9UOvU/PHoNDv/1jRHl8qUL3xrVrBihsar3Gy5u6A4OzshwtbmGD9d7rNg3irW9DtdoMbgISAQ+QULnNnPTlerwu5PiiDAmK717KCodh7OnNvpsl6NZx/gDLmtBYTzS+xT/g+3xxiD0ae8uYLlJmttWHRkkbjboFNt/7VfrH/hRWb9xQaZGqS5xtR6clA/68bpoY54VqIWyU+dq4CsW7DBd alexey@alex-mbp.local" >> .ssh/authorized_keys
+    SHELL
+    end
+  end
+end
+

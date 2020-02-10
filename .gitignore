@@ -38,3 +38,4 @@ ansible/learn_ansible_and_master_devops/main.log
 ansible/ansible_beginer/ansible/
 ansible/ansible_beginer/.vagrant/
 ansible/ansible_beginer/.vagrant/rgloader/loader.rb
+docker/docker_mastery/Vagrantfile/.vagrant
