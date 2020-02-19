@@ -1,0 +1,21 @@
+IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
+791b6e40940c        12 days ago         /bin/sh -c #(nop)  CMD ["mysqld"]               0B                  
+<missing>           12 days ago         /bin/sh -c #(nop)  EXPOSE 3306 33060            0B                  
+<missing>           12 days ago         /bin/sh -c #(nop)  ENTRYPOINT ["docker-entry…   0B                  
+<missing>           12 days ago         /bin/sh -c ln -s usr/local/bin/docker-entryp…   34B                 
+<missing>           12 days ago         /bin/sh -c #(nop) COPY file:b3081195cff78c47…   12.7kB              
+<missing>           12 days ago         /bin/sh -c #(nop) COPY dir:478f098f3681084f7…   1.22kB              
+<missing>           12 days ago         /bin/sh -c #(nop)  VOLUME [/var/lib/mysql]      0B                  
+<missing>           12 days ago         /bin/sh -c {   echo mysql-community-server m…   350MB               
+<missing>           12 days ago         /bin/sh -c echo "deb http://repo.mysql.com/a…   56B                 
+<missing>           12 days ago         /bin/sh -c #(nop)  ENV MYSQL_VERSION=8.0.19-…   0B                  
+<missing>           12 days ago         /bin/sh -c #(nop)  ENV MYSQL_MAJOR=8.0          0B                  
+<missing>           12 days ago         /bin/sh -c set -ex;  key='A4A9406876FCBD3C45…   30.2kB              
+<missing>           12 days ago         /bin/sh -c apt-get update && apt-get install…   44.8MB              
+<missing>           12 days ago         /bin/sh -c mkdir /docker-entrypoint-initdb.d    0B                  
+<missing>           12 days ago         /bin/sh -c set -x  && apt-get update && apt-…   4.44MB              
+<missing>           12 days ago         /bin/sh -c #(nop)  ENV GOSU_VERSION=1.7         0B                  
+<missing>           12 days ago         /bin/sh -c apt-get update && apt-get install…   10.2MB              
+<missing>           12 days ago         /bin/sh -c groupadd -r mysql && useradd -r -…   329kB               
+<missing>           12 days ago         /bin/sh -c #(nop)  CMD ["bash"]                 0B                  
+<missing>           12 days ago         /bin/sh -c #(nop) ADD file:003d2bac85e72555e…   55.3MB              
