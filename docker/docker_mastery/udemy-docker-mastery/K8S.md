@@ -130,10 +130,82 @@ kubectl get namespaces
 
 curl <hostname>.<namespace>.svc.cluster.local
 
+# Kubernetes Management Techniques
 
+## Run, Expose and Create Generators
+
+kubectl create deployment sample --image nginx --dry-run -o yaml
+
+kubectl create deployment test --image nginx --dry-run
+
+kubectl create deployment test --image nginx --dry-run -o yaml
+
+kubectl create job test --image nginx -dry-run -o yaml
+
+kubectl expose deployment/test --port 80 --dry-run -o -yaml
+
+kubectl create deployment test --image nginx
+
+kubectl expose deployment/test --port 80 --dry-run -o -yaml
+
+kubectl delete deployment test
+
+## The Future of Kubectl Run
+
+kubectl run test --image nginx --dry-run
+
+kubectl run test --image nginx --port 80 --expose --dry-run
+
+kubectl run test --image nginx --restart OnFailure --dry-run
+
+kubectl run test --image nginx --restart Never --dry-run
+
+kubectl run test --image nginx --scheduled "*/1 * * * *" --dry-run
+
+## Imperative vs. Declarative
+
+kubectl apply -f my-resources.yaml
+
+kubectl run
  
+# Moving to Declarative Kubernetes YAML
 
+## Kubectl Apply
 
+kubectl apply -f filename.yml
 
+kubectl apply -f myfile.yaml
+
+kubectl apply -f myyaml/
+
+kubectl apply -f https://bret.run/pod.yml
+
+curl -L https://bret.run/pod
+
+start https://bret.run/pod.yml
+
+## Building Your YAML Files
+
+kubectl api-resources
+
+kubectl api-versions
+
+## Dry Runs and Diffs
+
+kubectl apply -f app.yml --dry-run
+
+kubectl apply -f app.yml --server-dry-run
+
+kubectl diff -f app.yml
+
+## Labels and Label Selectors
+
+kubectl get pods -l app=nginx
+
+kubectl apply -f myfile.yaml -l app=nginx
+
+kubectl get all
+
+kubectl delete <resource type>/<resource name>
 
 
