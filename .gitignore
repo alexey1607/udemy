@@ -39,3 +39,5 @@ ansible/ansible_beginer/ansible/
 ansible/ansible_beginer/.vagrant/
 ansible/ansible_beginer/.vagrant/rgloader/loader.rb
 docker/docker_mastery/Vagrantfile/.vagrant
+python/python3rus/.idea
+python/python3rus/venv
